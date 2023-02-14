@@ -1,2 +1,2 @@
 # masf-CS24
-here we go again 
+This will be the Repository for Implementation of Success Prediction for Mobile applications
