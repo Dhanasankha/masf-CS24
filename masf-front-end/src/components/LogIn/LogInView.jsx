@@ -22,8 +22,9 @@ const LogInView = () => {
                     backgroundColor:'white',
                     height: 400,
                     width: 600,
-                    p: 5,
+                    p: 6,
                     borderRadius:5,
+                   
                   
                 }}>
                     <Stack spacing={1}>
@@ -34,7 +35,7 @@ const LogInView = () => {
                              display:  'flex'
                              }}>
                             LOGIN</Typography>
-                        <Typography variant='h6'>UserName or Email</Typography>
+                        <Typography variant='h6'>Username</Typography>
                         <InputBase
                         sx={{
                             backgroundColor:'#D1D1D1',
@@ -69,8 +70,7 @@ const LogInView = () => {
             
                         
         </Box>
-       
-       
+ 
     );
 };
 

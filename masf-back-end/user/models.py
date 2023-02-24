@@ -9,3 +9,6 @@ class Predictied_Application(models.Model):
 class Customer(models.Model):
     name = models.CharField(max_length=20)
     industry = models.CharField(max_length=20)
+
+class PredictionSession():
+    pass
