@@ -1,11 +1,11 @@
-import { Typography, Box, InputBase, Grid, Button } from '@mui/material';
+import { Typography, Box, InputBase, Button } from '@mui/material';
 import { Stack } from '@mui/system';
 import React from 'react';
 
 const LogInView = () => {
     return (
-      
-            <Box 
+        
+            <Box
                 sx={{
                     height: '100vh',
                     width: 600,
@@ -17,7 +17,7 @@ const LogInView = () => {
                     p: 1,
                     backgroundColor:'#FF2D2D'                           
                 }}
-            >
+                >
                 <Box sx={{
                     backgroundColor:'white',
                     height: 400,
@@ -66,9 +66,7 @@ const LogInView = () => {
                             borderRadius: 8,
                             width: 100,
                         }}>LOGIN</Button> 
-                </Box>
-            
-                        
+                </Box>                  
         </Box>
  
     );
