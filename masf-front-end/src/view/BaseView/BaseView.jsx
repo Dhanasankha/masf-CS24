@@ -1,9 +1,8 @@
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 import React from 'react';
 import AppbarContorller from '../../components/Appbar/AppbarContorller';
 import LogInView from '../../components/LogIn/LogInView';
-import DataFormViewContorller from '../../components/DataForm/DataFormContorller';
-import SingUpContorller from '../../components/SingUp/SingUpContorller';
+
 
 // import CustomerPage from '../CustomerPage';
 
@@ -14,12 +13,7 @@ const BaseView = () => {
                 <AppbarContorller/>
              
                 <LogInView/>
-
-            </Box>
-                
-
-           
-             
+            </Box>  
         </div>
     );
 };
