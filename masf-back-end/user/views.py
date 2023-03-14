@@ -8,7 +8,10 @@ from rest_framework.permissions import IsAuthenticated
 
 from user.serializers import UserSerializer
 from user.serializers import CustomerSerializer
+from user.serializers import AppDetailsSerializer
+
 from user.models import Customer
+from user.models import AppDetails
 # invoke serializer and return to client.
 
 
@@ -22,8 +25,15 @@ def register(request):
 
 
 @api_view(['GET', 'POST'])
-@permission_classes([IsAuthenticated])
+# @permission_classes([IsAuthenticated])
 def customers(request):
     data = Customer.objects.all()
     serializer = CustomerSerializer(data, many=True)
     return JsonResponse({'customer':serializer.data})
+
+@api_view(['GET', 'POST'])
+def appDetails(request):
+    data = AppDetails.objects.all()
+    serializer = AppDetailsSerializer(data, many=True)
+    return JsonResponse({'appDetails':serializer.data})
+

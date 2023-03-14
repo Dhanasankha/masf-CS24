@@ -10,5 +10,8 @@ class Customer(models.Model):
     name = models.CharField(max_length=20)
     industry = models.CharField(max_length=20)
 
-class PredictionSession():
-    pass
+class AppDetails(models.Model):
+    appName = models.CharField(max_length=20)
+    appStore = models.CharField(max_length=20)
+    appCatergory = models.CharField(max_length=20)
+    
