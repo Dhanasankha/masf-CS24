@@ -31,9 +31,18 @@ def customers(request):
     serializer = CustomerSerializer(data, many=True)
     return JsonResponse({'customer':serializer.data})
 
-@api_view(['GET', 'POST'])
+
+@api_view(['POST','GET'])
 def appDetails(request):
-    data = AppDetails.objects.all()
-    serializer = AppDetailsSerializer(data, many=True)
-    return JsonResponse({'appDetails':serializer.data})
+    # data = AppDetails.objects.all()
+    serializer = AppDetailsSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        #model = prediction.model
+    
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# @api_view([])
+# def    
+    
 

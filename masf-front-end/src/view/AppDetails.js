@@ -18,13 +18,11 @@ const AppDetails = () => {
             appCatergory
         };
 
-        try{
-            const response = await axios.post('http://127.0.0.1:8000/home/appdetails', appDetails)
-    
-        } catch(error){
-            console.log(error)
-    
-        }
+        axios.post('http://127.0.0.1:8000/home/appdetails', appDetails)
+        .then(response =>{
+            console.log(response)
+        })
+        .catch(console.error())
     };
 
     
@@ -32,10 +30,11 @@ const AppDetails = () => {
 
     return (
         <form onSubmit={handelSubmit} method="POST">
-            <input type="text" name={appName} onChange={(e)=>setAppName(e.target.value)}/><br/>
-            <input type="text" name={appStore} onChange={(e)=>setAppStore(e.target.value)}/><br/>
-            <input type="text" name={appCatergory} onChange={(e)=>setAppCatergory(e.target.value)}/><br/>
-            <button type='submit' >Make Prediction!</button>
+            <input type="number" name={appName} onChange={(e)=>setAppName(e.target.value)}/><br/>
+            <input type="number" name={appStore} onChange={(e)=>setAppStore(e.target.value)}/><br/>
+            <input type="number" name={appCatergory} onChange={(e)=>setAppCatergory(e.target.value)}/><br/>
+            <input type="number" name='appData'/><br/>
+            <button type="number" >Make Prediction!</button>
         </form>
     );
 };

@@ -18,3 +18,4 @@ const BaseView = () => {
 };
 // sx={{backgroundColor: '#FF2D2D'}}
 export default BaseView;
+
