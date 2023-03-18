@@ -13,7 +13,8 @@ from user.serializers import AppDetailsSerializer
 from user.models import Customer
 from user.models import AppDetails
 # invoke serializer and return to client.
-
+import pandas as pd
+from user.predicting_model import model
 
 
 @api_view(['POST'])
@@ -31,9 +32,20 @@ def customers(request):
     serializer = CustomerSerializer(data, many=True)
     return JsonResponse({'customer':serializer.data})
 
-@api_view(['GET', 'POST'])
+
+@api_view(['POST','GET'])
 def appDetails(request):
-    data = AppDetails.objects.all()
-    serializer = AppDetailsSerializer(data, many=True)
-    return JsonResponse({'appDetails':serializer.data})
+    # data = AppDetails.objects.all()
+    serializer = AppDetailsSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        serializer = pd.DataFrame(serializer, index=[0])
+        totalratings = model.predict(serializer)[0]
+        return Response(totalratings)
+    
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# @api_view([])
+# def    
+    
 

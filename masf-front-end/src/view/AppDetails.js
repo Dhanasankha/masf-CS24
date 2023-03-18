@@ -3,9 +3,10 @@ import { useState } from 'react';
 import axios from 'axios';
 
 const AppDetails = () => {
-    const [appName, setAppName] = useState('')
-    const [appStore, setAppStore] = useState('')
-    const [appCatergory, setAppCatergory] = useState('')
+    const [rating, setRating] = useState('')
+    const [count, setCount] = useState('')
+    const [size, setSize] = useState('')
+    const [languages, setLanguages] = useState('')
 
 
 
@@ -13,30 +14,30 @@ const AppDetails = () => {
         event.preventDefault();
 
         const appDetails = {
-            appName,
-            appStore,
-            appCatergory
+            rating,
+            count,
+            size,
+            languages
         };
 
-        try{
-            const response = await axios.post('http://127.0.0.1:8000/home/appdetails', appDetails)
-    
-        } catch(error){
-            console.log(error)
-    
-        }
+        axios.post('http://127.0.0.1:8000/home/appdetails', appDetails)
+        .then(response =>{
+            console.log(response)
+        })
+        .catch(console.error())
     };
 
-    
-
-
     return (
-        <form onSubmit={handelSubmit} method="POST">
-            <input type="text" name={appName} onChange={(e)=>setAppName(e.target.value)}/><br/>
-            <input type="text" name={appStore} onChange={(e)=>setAppStore(e.target.value)}/><br/>
-            <input type="text" name={appCatergory} onChange={(e)=>setAppCatergory(e.target.value)}/><br/>
-            <button type='submit' >Make Prediction!</button>
-        </form>
+        <div>
+            <h1>Make Prediction</h1>
+            <form onSubmit={handelSubmit} method="POST">
+                <input type="number" name={rating} onChange={(e)=>setRating(e.target.value)}/><br/>
+                <input type="number" name={count} onChange={(e)=>setCount(e.target.value)}/><br/>
+                <input type="number" name={size} onChange={(e)=>setSize(e.target.value)}/><br/>
+                <input type="number" name={languages} onChange={(e)=>setLanguages(e.target.value)}/><br/>
+                <button type="number" >Make Prediction!</button>
+            </form>
+        </div>
     );
 };
 

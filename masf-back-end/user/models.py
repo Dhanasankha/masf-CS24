@@ -11,7 +11,9 @@ class Customer(models.Model):
     industry = models.CharField(max_length=20)
 
 class AppDetails(models.Model):
-    appName = models.CharField(max_length=20)
-    appStore = models.CharField(max_length=20)
-    appCatergory = models.CharField(max_length=20)
+    rating = models.FloatField(null=False, default=0)
+    size = models.FloatField(null=False, default=0)
+    ratings_count = models.IntegerField(null=False, default=0)
+    languages = models.IntegerField(max_length=255, null=False, default=0)
+
     
