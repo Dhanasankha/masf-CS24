@@ -8,8 +8,8 @@ import PredictionPage from './view/PredictionPage';
 function App() {
   return (
     <div>
-       <AppbarContorller/>
-       <LogInView/>
+       {/* <AppbarContorller/> */}
+       <AppDetails/>
     </div>
     
   );
