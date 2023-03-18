@@ -1,5 +1,0 @@
-
-with np.printoptions(precision=2, suppress=True):
-  print('First example:', first)
-  print()
-  print('Normalized:', normalizer(first).numpy())
