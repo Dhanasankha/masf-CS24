@@ -1,15 +1,40 @@
-import { InputBase,Box, Typography ,Button } from '@mui/material';
+import { Typography, Box, InputBase, Button } from '@mui/material';
 import { Stack } from '@mui/system';
 import React from 'react';
-import './SingUpStyle.css'
 
-const SingUpView = () => {
+const LogInView = () => {
     return (
-        <form>
-            <Box className = "box">
-                <Box className = "box2">
+        
+            <Box
+                sx={{
+                    height: '100vh',
+                    width: 600,
+                    margin: 'auto',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    display:'flex',
+                    borderRadius: 5,
+                    p: 1,
+                    backgroundColor:'#FF2D2D'                           
+                }}
+                >
+                <Box sx={{
+                    backgroundColor:'white',
+                    height: 400,
+                    width: 600,
+                    p: 6,
+                    borderRadius:5,
+                   
+                  
+                }}>
                     <Stack spacing={1}>
-                        <Typography className = "h3" variant='h3'>SING UP</Typography>
+                        <Typography variant='h3' 
+                        sx={{
+                             pb: 2, 
+                             alignSelf: 'center',
+                             display:  'flex'
+                             }}>
+                            LOGIN</Typography>
                         <Typography variant='h6'>Username</Typography>
                         <InputBase
                         sx={{
@@ -20,7 +45,7 @@ const SingUpView = () => {
                         }}
                         />  
                         <Typography variant='h6'>Password</Typography>
-                        <InputBase 
+                        <InputBase
                         sx={{
                             backgroundColor:'#D1D1D1',
                             width: 500,
@@ -40,11 +65,11 @@ const SingUpView = () => {
                             backgroundColor: 'red',
                             borderRadius: 8,
                             width: 100,
-                        }}>SINGUP</Button> 
-                </Box>            
+                        }}>LOGIN</Button> 
+                </Box>                  
         </Box>
-        </form>
+ 
     );
 };
 
-export default SingUpView;
+export default LogInView;

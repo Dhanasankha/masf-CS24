@@ -1,13 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-import BaseViewController from './view/BaseView/BaseViewController';
-import DataFormView from './components/DataForm/DataFormView';
+
+import AppbarContorller from './components/Appbar/AppbarContorller';
+import LogInView from './components/LogIn/LogInView';
+import AppDetails from './view/AppDetails';
+import PredictionPage from './view/PredictionPage';
+// import BaseViewController from './view/BaseView/BaseViewController';
 
 function App() {
   return (
-    <BaseViewController>
-      
-    </BaseViewController>
+    <div>
+       {/* <AppbarContorller/> */}
+       <AppDetails/>
+    </div>
     
   );
 }

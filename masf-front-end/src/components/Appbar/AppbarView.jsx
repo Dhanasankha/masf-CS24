@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, Stack, Typography } from '@mui/material';
+import { AppBar, Toolbar, Stack, Typography, Button } from '@mui/material';
 
 const AppbarView = () => {
     return (
@@ -10,29 +10,29 @@ const AppbarView = () => {
         }}
         >
             <Toolbar>
-            <Stack direction={"row"} flexGrow={1}>
-                <Typography>LOGO-NAME</Typography>
-            </Stack>
-            <Stack direction={"row"} justifyContent={"end"} flexDirection="row">
-                <Typography 
-                sx={{
-                    m:3, 
-                    color:"secondary"
-                }}>ABOUT
-                </Typography>
+                <Stack direction={"row"} flexGrow={1}>
+                    <Typography>LOGO-NAME</Typography>
+                </Stack>
+                <Stack direction={"row"} justifyContent={"end"} flexDirection="row">
+                    <Typography 
+                    sx={{
+                        m:3, 
+                        color:"secondary"
+                    }}>ABOUT
+                    </Typography>
 
-                <Typography 
-                sx={{
-                    m:3
-                }}> SERVICES
-                </Typography>
+                    <Typography 
+                    sx={{
+                        m:3
+                    }}> SERVICES
+                    </Typography>
 
-                <Typography 
-                sx={{
-                    m:3
-                    }}>LOGIN
-                </Typography>
-            </Stack>
+                    <Typography 
+                    sx={{
+                        m:3
+                        }}>LOGIN
+                    </Typography>
+                </Stack>
 
             </Toolbar>
         </AppBar>
