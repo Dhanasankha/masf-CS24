@@ -29,17 +29,19 @@ def register(request):
 # @permission_classes([IsAuthenticated])
 def customers(request):
     data = Customer.objects.all()
-    serializer = CustomerSerializer(data, many=True)
+
+    serializer = CustomerSerializer(data=request, many=True)
     return JsonResponse({'customer':serializer.data})
 
 
 @api_view(['POST','GET'])
 def appDetails(request):
-    # data = AppDetails.objects.all()
+
+    data = appDetails.objects.all()
     serializer = AppDetailsSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
-        serializer = pd.DataFrame(serializer, index=[0])
+        serializer = pd.DataFrame(data, index=[0])
         totalratings = model.predict(serializer)[0]
         return Response(totalratings)
     
