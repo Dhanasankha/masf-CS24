@@ -5,8 +5,8 @@ from .views import appDetails
 
 urlpatterns = [
 
-    path('/register/', register ),
-    path('/customer/', customers),
-    path('/appdetails', appDetails)
+    path('register/', register ),
+    path('customer/', customers),
+    path('appdetails', appDetails)
 
 ]

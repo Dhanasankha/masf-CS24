@@ -102,7 +102,7 @@ y_train = train_data[target_variable]
 X_val = val_data[features]
 y_val = val_data[target_variable]
 X_test = test_data[features]
-y_test = test_data[target_variable]
+y_test = test_data[target_variable] 
 
 # Train a linear regression model
 model = LinearRegression()

@@ -1,6 +1,6 @@
 import pandas as pd
 
-data = pd.read_csv(r'f:\Documents\IIT\SEM2\SDGP\masf-CS24\masf-CS24\masf-back-end\user\AppleStore.csv')
+data = pd.read_csv(r'D:\IIT\L5\masf-CS24\masf-back-end\user\AppleStore.csv')
 
 
 data.rename(columns={'user_rating': 'ratings', 'prime_genre': 'catergory'}, inplace=True)
