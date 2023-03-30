@@ -5,8 +5,8 @@ import './SingUpStyle.css'
 
 const SingUpView = () => {
     return (
-        <form>
-            <Box className = "box">
+        <form >
+            <Box className = "box" >
                 <Box className = "box2">
                     <Stack spacing={1}>
                         <Typography className = "h3" variant='h3'>SING UP</Typography>
