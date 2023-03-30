@@ -5,6 +5,7 @@ import React from 'react';
 import SingUpContorller from '../../components/SingUp/SingUpContorller';
 
 
+
 // import CustomerPage from '../CustomerPage';
 
 const BaseView = () => {
