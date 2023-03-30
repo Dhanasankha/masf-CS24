@@ -12,7 +12,7 @@ const Navbar = () => {
         <li>
           <button className="navbar__button">Sign In</button>
         </li>
-        <li>
+        <li>1
           <button className="navbar__button">Data Form</button>
         </li>
       </ul>

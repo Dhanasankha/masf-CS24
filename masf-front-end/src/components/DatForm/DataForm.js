@@ -1,155 +1,121 @@
-import React, { useState } from "react";
-import "./DataForm.css";
+import React from "react";
+// import "./DataForm.css";
 import TextField from "@mui/material/TextField";
-import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
+import { useState } from "react";
+import axios from "axios";
+import { alignProperty } from "@mui/material/styles/cssUtils";
 
 const DataForm = () => {
   const [appName, setAppName] = useState("");
-  const [appCategory, setAppCategory] = useState("");
-  const [targetAge, setTargetAge] = useState("");
-  const [targetGender, setTargetGender] = useState("");
-  const [targetLocation, setTargetLocation] = useState("");
-  const [monetizationStrategy, setMonetizationStrategy] = useState("");
-  const [appFeatures, setAppFeatures] = useState("");
-  const [userAcquisitionStrategy, setUserAcquisitionStrategy] = useState("");
-  const [budget, setBudget] = useState("");
-  const [competitorAnalysis, setCompetitorAnalysis] = useState("");
+  const [rating, setRating] = useState("");
+  const [count, setCount] = useState("");
+  const [size, setSize] = useState("");
+  const [supportedDevices, setSupportedDevices] = useState("");
+  const [languages, setLanguages] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
+  const submitHandle = async () => {
+    const initialValues = {
+      appName,
+      rating,
+      count,
+      size,
+      supportedDevices,
+      languages,
+    };
+    axios
+      .post("http://127.0.0.1:8000/home/appdetails", initialValues)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch(console.error());
   };
-
   return (
-    <div className="box">
-      <div className="data-form">
+    <div
+      className="box"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignContent: "center",
+      }}
+    >
+      <div
+        className="data-form"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignContent: "center",
+        }}
+      >
         <h2>Enter your data</h2>
-        <form onSubmit={handleSubmit} className="grid-container">
+        <form onSubmit={submitHandle} className="grid-container" method="POST">
           <div className="form-group grid-item">
             <TextField
               id="appName"
+              name="AppName"
               label="Application Name"
-              value={appName}
               onChange={(e) => setAppName(e.target.value)}
               variant="outlined"
+              className="form-field"
             />
           </div>
-          <div className="form-group grid-item">
+
+          <div className="form-group grid-item" style={{ marginTop: "20px" }}>
             <TextField
-              id="appCategory"
-              select
-              label="Application Category"
-              value={appCategory}
-              onChange={(e) => setAppCategory(e.target.value)}
-              SelectProps={{
-                native: true,
-              }}
+              name="rating"
+              onChange={(e) => setRating(e.target.value)}
+              id="rating"
+              label="Rating"
               variant="outlined"
-            >
-              <MenuItem value="">--Select Category--</MenuItem>
-              <MenuItem value="Action">Action</MenuItem>
-              <MenuItem value="Adventure">Adventure</MenuItem>
-              <MenuItem value="Arcade">Arcade</MenuItem>
-              <MenuItem value="Casual">Casual</MenuItem>
-              <MenuItem value="Educational">Educational</MenuItem>
-              <MenuItem value="Puzzle">Puzzle</MenuItem>
-              <MenuItem value="Simulation">Simulation</MenuItem>
-              <MenuItem value="Sports">Sports</MenuItem>
-              <MenuItem value="Strategy">Strategy</MenuItem>
-            </TextField>
-          </div>
-          <div className="form-group grid-item">
-            <TextField
-              id="targetAge"
-              label="Target Age"
-              value={targetAge}
-              onChange={(e) => setTargetAge(e.target.value)}
-              variant="outlined"
+              className="form-field"
             />
           </div>
-          <div className="form-group grid-item">
+          <div className="form-group grid-item" style={{ marginTop: "20px" }}>
             <TextField
-              id="targetGender"
-              label="Target Gender"
-              value={targetGender}
-              onChange={(e) => setTargetGender(e.target.value)}
+              name="count"
+              id="count"
+              onChange={(e) => setCount(e.target.value)}
+              label="Count"
               variant="outlined"
+              className="form-field"
             />
           </div>
-          <div className="form-group grid-item">
+          <div className="form-group grid-item" style={{ marginTop: "20px" }}>
             <TextField
-              id="targetLocation"
-              label="Target Location"
-              value={targetLocation}
-              onChange={(e) => setTargetLocation(e.target.value)}
+              name="size"
+              onChange={(e) => setSize(e.target.value)}
+              id="Size"
+              label="Size"
               variant="outlined"
+              className="form-field"
             />
           </div>
-          <div className="form-group grid-item">
+          <div className="form-group grid-item" style={{ marginTop: "20px" }}>
             <TextField
-              id="monetizationStrategy"
-              select
-              label="Monetization Strategy"
-              value={monetizationStrategy}
-              onChange={(e) => setMonetizationStrategy(e.target.value)}
-              SelectProps={{
-                native: true,
-              }}
+              name="supportedDevices"
+              id="supportedDevices"
+              onChange={(e) => setSupportedDevices(e.target.value)}
+              label="supportedDevices"
               variant="outlined"
-            >
-              <MenuItem value="">--Select Strategy--</MenuItem>
-              <MenuItem value="In-App Purchases">In-App Purchases</MenuItem>
-              <MenuItem value="Ads">Ads</MenuItem>
-              <MenuItem value="Subscriptions">Subscriptions</MenuItem>
-              <MenuItem value="Freemium">Freemium</MenuItem>
-              <MenuItem value="Paymium">Paymium</MenuItem>
-            </TextField>
-          </div>
-          <div className="form-group grid-item">
-            <TextField
-              id="appFeatures"
-              label="Application Features"
-              value={appFeatures}
-              onChange={(e) => setAppFeatures(e.target.value)}
-              multiline
-              rows={4}
-              variant="outlined"
+              className="form-field"
             />
           </div>
-          <div className="form-group grid-item">
+          <div className="form-group grid-item" style={{ marginTop: "20px" }}>
             <TextField
-              id="userAcquisitionStrategy"
-              label="User Acquisition Strategy"
-              value={userAcquisitionStrategy}
-              onChange={(e) => setUserAcquisitionStrategy(e.target.value)}
-              multiline
-              rows={4}
+              name="languages"
+              id="languages"
+              onChange={(e) => setLanguages(e.target.value)}
+              label="Languages"
               variant="outlined"
+              className="form-field"
             />
           </div>
-          <div className="form-group grid-item">
-            <TextField
-              id="budget"
-              label="Budget"
-              value={budget}
-              onChange={(e) => setBudget(e.target.value)}
-              variant="outlined"
-            />
-          </div>
-          <div className="form-group grid-item">
-            <TextField
-              id="competitorAnalysis"
-              label="Competitor Analysis"
-              value={competitorAnalysis}
-              onChange={(e) => setCompetitorAnalysis(e.target.value)}
-              multiline
-              rows={4}
-              variant="outlined"
-            />
-          </div>
-          <div className="form-group grid-item">
-            <Button variant="contained" type="submit">
+
+          <div
+            className="form-group grid-item"
+            style={{ marginTop: "20px", alignItems: "center", display: "flex" }}
+          >
+            <Button variant="contained" color="primary" type="submit">
               Submit
             </Button>
           </div>

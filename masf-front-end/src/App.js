@@ -1,14 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-import BaseViewController from './view/BaseView/BaseViewController';
-import DataFormView from './components/DataForm/DataFormView';
-
+import "./App.css";
+import Navbar from "./components/Navbar";
+import DataForm from "./components/DatForm/DataForm";
 function App() {
   return (
-    <BaseViewController>
-      
-    </BaseViewController>
-    
+    <div>
+      <Navbar></Navbar>
+      <div className="container">
+        <DataForm></DataForm>
+      </div>
+      <h1>Welcome to my website!</h1>
+      <p>This is some sample text.</p>
+    </div>
   );
 }
 
