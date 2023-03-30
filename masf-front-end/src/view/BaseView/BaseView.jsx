@@ -4,6 +4,7 @@ import LogInController from '../../components/LogIn/LogInController';
 // import SingUpContorller from '../../components/SingUp/SingUpContorller';
 
 
+
 // import CustomerPage from '../CustomerPage';
 
 const BaseView = () => {
