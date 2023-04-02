@@ -1,7 +1,7 @@
 import React from 'react';
-import '../App.css';
-import './SignUpSection.css'
-import { Button } from './Button';
+import '../../App.css';
+import '../SignUpSection/SignUpSection.css'
+import { Button } from '../Button/Button';
 
 function SignUpSection() {
   return (

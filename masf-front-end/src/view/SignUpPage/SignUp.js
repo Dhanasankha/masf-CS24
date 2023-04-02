@@ -1,7 +1,6 @@
 import React from 'react';
-import '../../App.css';
-import SignUpSection from '../SignUpSection'
-import Footer from '../Footer';
+import SignUpSection from '../../components/SignUpSection/SignUpSection'
+import Footer from '../../components/Footer/Footer';
 
 function SignUp() {
   return (
