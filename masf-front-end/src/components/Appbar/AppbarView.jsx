@@ -1,5 +1,6 @@
 import React from 'react';
 import { AppBar, Toolbar, Stack, Typography, Button } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 const AppbarView = () => {
     return (
@@ -28,9 +29,7 @@ const AppbarView = () => {
                     </Typography>
 
                     <Typography 
-                    sx={{
-                        m:3
-                        }}>LOGIN
+                    sx={{m:3}}> <NavLink to= "home">LOGIN</NavLink> 
                     </Typography>
                 </Stack>
 

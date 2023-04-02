@@ -64,8 +64,8 @@ const LogInView = () => {
                             mt: 10,                          
                             backgroundColor: 'red',
                             borderRadius: 8,
-                            width: 100,
-                        }}>LOGIN</Button> 
+                            width: 100,}}>          
+                            LOGIN</Button> 
                 </Box>                  
         </Box>
  
