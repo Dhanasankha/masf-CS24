@@ -88,8 +88,6 @@ r2 = r2_score(y_test, y_pred)
 mae = mean_absolute_error(y_test, y_pred)
 rmse = np.sqrt(mean_squared_error(y_test, y_pred))
 
-from sklearn.neighbors import KNeighborsRegressor
-import warnings
 
 warnings.filterwarnings("ignore") # to avoid the printing of a warning which does not affect the code
 
