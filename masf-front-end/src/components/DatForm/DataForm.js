@@ -1,10 +1,9 @@
-import React from "react";
-// import "./DataForm.css";
+import React, { useState } from "react";
+import "./DataForm.css";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { useState } from "react";
 import axios from "axios";
-import { alignProperty } from "@mui/material/styles/cssUtils";
+import OutputTable from "./OutputTable";
 
 const DataForm = () => {
   const [appName, setAppName] = useState("");
@@ -13,8 +12,11 @@ const DataForm = () => {
   const [size, setSize] = useState("");
   const [supportedDevices, setSupportedDevices] = useState("");
   const [languages, setLanguages] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [formValues, setFormValues] = useState({});
 
-  const submitHandle = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const initialValues = {
       appName,
       rating,
@@ -26,19 +28,14 @@ const DataForm = () => {
     axios
       .post("http://127.0.0.1:8000/home/appdetails", initialValues)
       .then((response) => {
-        console.log(response);
+        setFormValues(initialValues);
+        setSubmitted(true);
       })
       .catch(console.error());
   };
+
   return (
-    <div
-      className="box"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignContent: "center",
-      }}
-    >
+    <div className="data-form-container">
       <div
         className="data-form"
         style={{
@@ -47,9 +44,9 @@ const DataForm = () => {
           alignContent: "center",
         }}
       >
-        <h2>Enter your data</h2>
-        <form onSubmit={submitHandle} className="grid-container" method="POST">
-          <div className="form-group grid-item">
+        <p className="Header">Enter your data</p>
+        <form onSubmit={handleSubmit} className="grid-container" method="POST">
+          <div className="form-group grid-item" style={{ marginTop: "20px" }}>
             <TextField
               id="appName"
               name="AppName"
@@ -57,6 +54,7 @@ const DataForm = () => {
               onChange={(e) => setAppName(e.target.value)}
               variant="outlined"
               className="form-field"
+              required
             />
           </div>
 
@@ -68,6 +66,7 @@ const DataForm = () => {
               label="Rating"
               variant="outlined"
               className="form-field"
+              required
             />
           </div>
           <div className="form-group grid-item" style={{ marginTop: "20px" }}>
@@ -78,28 +77,33 @@ const DataForm = () => {
               label="Count"
               variant="outlined"
               className="form-field"
-            />
+              required
+            />{" "}
           </div>
           <div className="form-group grid-item" style={{ marginTop: "20px" }}>
             <TextField
               name="size"
+              id="size"
               onChange={(e) => setSize(e.target.value)}
-              id="Size"
               label="Size"
               variant="outlined"
               className="form-field"
+              required
             />
           </div>
+
           <div className="form-group grid-item" style={{ marginTop: "20px" }}>
             <TextField
               name="supportedDevices"
               id="supportedDevices"
               onChange={(e) => setSupportedDevices(e.target.value)}
-              label="supportedDevices"
+              label="Supported Devices"
               variant="outlined"
               className="form-field"
+              required
             />
           </div>
+
           <div className="form-group grid-item" style={{ marginTop: "20px" }}>
             <TextField
               name="languages"
@@ -108,18 +112,18 @@ const DataForm = () => {
               label="Languages"
               variant="outlined"
               className="form-field"
+              required
             />
           </div>
 
-          <div
-            className="form-group grid-item"
-            style={{ marginTop: "20px", alignItems: "center", display: "flex" }}
-          >
-            <Button variant="contained" color="primary" type="submit">
+          <div className="form-group grid-item" style={{ marginTop: "20px" }}>
+            <Button type="submit" variant="contained" color="primary">
               Submit
             </Button>
           </div>
         </form>
+
+        {submitted && <OutputTable formValues={formValues} />}
       </div>
     </div>
   );

@@ -4,12 +4,14 @@
   align-items: center;
   background-color: #1a1a1a; 
   color: #ffffff; 
+  height: 60px; /* change to desired height */
 }
 
 .navbar__brand {
   font-size: 1.5rem;
   font-weight: bold;
   text-transform: uppercase; 
+  margin-left: 50px;
 }
 
 .navbar__links {
@@ -24,8 +26,8 @@
 }
 
 .navbar__button {
-  background-color: #ffffff; 
-  color: #1a1a1a; 
+  background-color: #1a1a1a; /* change to desired background color */
+  color: #ffffff; /* change to desired text color */
   border: none;
   cursor: pointer;
   padding: 0.5rem 1rem;
@@ -35,8 +37,8 @@
 }
 
 .navbar__button:hover {
-  background-color: #006d77; 
-  color: #ffffff; 
+  background-color: #ffffff; /* change to desired background color */
+  color: #1a1a1a; /* change to desired text color */
   font-size: 1.3rem;
 }
 
