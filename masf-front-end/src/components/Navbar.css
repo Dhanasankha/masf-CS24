@@ -4,7 +4,7 @@
   align-items: center;
   background-color: #1a1a1a; 
   color: #ffffff; 
-  height: 60px; /* change to desired height */
+  height: 60px; 
 }
 
 .navbar__brand {
@@ -26,8 +26,8 @@
 }
 
 .navbar__button {
-  background-color: #1a1a1a; /* change to desired background color */
-  color: #ffffff; /* change to desired text color */
+  background-color: #1a1a1a; 
+  color: #ffffff; 
   border: none;
   cursor: pointer;
   padding: 0.5rem 1rem;
@@ -37,8 +37,8 @@
 }
 
 .navbar__button:hover {
-  background-color: #ffffff; /* change to desired background color */
-  color: #1a1a1a; /* change to desired text color */
+  background-color: #ffffff; 
+  color: #1a1a1a; 
   font-size: 1.3rem;
 }
 

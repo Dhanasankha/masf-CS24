@@ -15,6 +15,9 @@ const DataForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [formValues, setFormValues] = useState({});
 
+  // Set the number of installs to 1000
+  const installs = 1000;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const initialValues = {
@@ -35,95 +38,108 @@ const DataForm = () => {
   };
 
   return (
-    <div className="data-form-container">
+    <div>
       <div
-        className="data-form"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignContent: "center",
-        }}
+        className="data-form-container"
+        style={{ display: "inline-block", marginRight: "20px" }}
       >
-        <p className="Header">Enter your data</p>
-        <form onSubmit={handleSubmit} className="grid-container" method="POST">
-          <div className="form-group grid-item" style={{ marginTop: "20px" }}>
-            <TextField
-              id="appName"
-              name="AppName"
-              label="Application Name"
-              onChange={(e) => setAppName(e.target.value)}
-              variant="outlined"
-              className="form-field"
-              required
-            />
-          </div>
+        <div
+          className="data-form"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignContent: "center",
+          }}
+        >
+          <p className="Header">Enter your data</p>
+          <form
+            onSubmit={handleSubmit}
+            className="grid-container"
+            method="POST"
+          >
+            <div className="form-group grid-item" style={{ marginTop: "20px" }}>
+              <TextField
+                id="appName"
+                name="AppName"
+                label="Application Name"
+                onChange={(e) => setAppName(e.target.value)}
+                variant="outlined"
+                className="form-field"
+                required
+              />
+            </div>
 
-          <div className="form-group grid-item" style={{ marginTop: "20px" }}>
-            <TextField
-              name="rating"
-              onChange={(e) => setRating(e.target.value)}
-              id="rating"
-              label="Rating"
-              variant="outlined"
-              className="form-field"
-              required
-            />
-          </div>
-          <div className="form-group grid-item" style={{ marginTop: "20px" }}>
-            <TextField
-              name="count"
-              id="count"
-              onChange={(e) => setCount(e.target.value)}
-              label="Count"
-              variant="outlined"
-              className="form-field"
-              required
-            />{" "}
-          </div>
-          <div className="form-group grid-item" style={{ marginTop: "20px" }}>
-            <TextField
-              name="size"
-              id="size"
-              onChange={(e) => setSize(e.target.value)}
-              label="Size"
-              variant="outlined"
-              className="form-field"
-              required
-            />
-          </div>
+            <div className="form-group grid-item" style={{ marginTop: "20px" }}>
+              <TextField
+                name="rating"
+                onChange={(e) => setRating(e.target.value)}
+                id="rating"
+                label="Rating"
+                variant="outlined"
+                className="form-field"
+                required
+              />
+            </div>
+            <div className="form-group grid-item" style={{ marginTop: "20px" }}>
+              <TextField
+                name="count"
+                id="count"
+                onChange={(e) => setCount(e.target.value)}
+                label="Count"
+                variant="outlined"
+                className="form-field"
+                required
+              />{" "}
+            </div>
+            <div className="form-group grid-item" style={{ marginTop: "20px" }}>
+              <TextField
+                name="size"
+                id="size"
+                onChange={(e) => setSize(e.target.value)}
+                label="Size"
+                variant="outlined"
+                className="form-field"
+                required
+              />
+            </div>
 
-          <div className="form-group grid-item" style={{ marginTop: "20px" }}>
-            <TextField
-              name="supportedDevices"
-              id="supportedDevices"
-              onChange={(e) => setSupportedDevices(e.target.value)}
-              label="Supported Devices"
-              variant="outlined"
-              className="form-field"
-              required
-            />
-          </div>
+            <div className="form-group grid-item" style={{ marginTop: "20px" }}>
+              <TextField
+                name="supportedDevices"
+                id="supportedDevices"
+                onChange={(e) => setSupportedDevices(e.target.value)}
+                label="Supported Devices"
+                variant="outlined"
+                className="form-field"
+                required
+              />
+            </div>
+            <div className="form-group grid-item" style={{ marginTop: "20px" }}>
+              <TextField
+                name="languages"
+                id="languages"
+                onChange={(e) => setLanguages(e.target.value)}
+                label="Languages"
+                variant="outlined"
+                className="form-field"
+                required
+              />
+            </div>
+            <div className="form-group grid-item" style={{ marginTop: "20px" }}>
+              <Button variant="contained" type="submit" color="primary">
+                Submit
+              </Button>
+            </div>
+          </form>
+        </div>
+      </div>
 
-          <div className="form-group grid-item" style={{ marginTop: "20px" }}>
-            <TextField
-              name="languages"
-              id="languages"
-              onChange={(e) => setLanguages(e.target.value)}
-              label="Languages"
-              variant="outlined"
-              className="form-field"
-              required
-            />
-          </div>
-
-          <div className="form-group grid-item" style={{ marginTop: "20px" }}>
-            <Button type="submit" variant="contained" color="primary">
-              Submit
-            </Button>
-          </div>
-        </form>
-
-        {submitted && <OutputTable formValues={formValues} />}
+      <div style={{ display: "inline-block", marginLeft: "20px" }}>
+        <OutputTable
+          formValues={formValues}
+          installs={installs}
+          submitted={submitted}
+        />
       </div>
     </div>
   );
