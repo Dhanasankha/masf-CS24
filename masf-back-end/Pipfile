@@ -6,6 +6,11 @@ name = "pypi"
 [packages]
 django = "*"
 djangorestframework = "*"
+django-cors-headers = "*"
+djangorestframework-simplejwt = "*"
+sklearn = "*"
+whitenoise = "*"
+scikit-learn = "*"
 
 [dev-packages]
 
