@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-import "./App.css";
-import Navbar from "./components/Navbar";
-import DataForm from "./components/DatForm/DataForm";
-
-function App() {
-  return (
-    <div>
-      <Navbar></Navbar>
-      <div className="techImage">
-        <div className="container">
-          <DataForm></DataForm>
-        </div>
-      </div>
-    </div>
-=======
 import { BrowserRouter as Router, Route, Routes , Link, BrowserRouter} from "react-router-dom";
 // import AppbarContorller from './components/Appbar/AppbarContorller';
 import React from 'react';
@@ -39,7 +23,6 @@ function App() {
         </Routes>
       </main>
     </BrowserRouter>
->>>>>>> cbf0fb3b2410ada0e4c4912c74148f62b623ef8a
   );
 }
 
