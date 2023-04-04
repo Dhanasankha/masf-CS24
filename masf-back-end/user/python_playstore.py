@@ -88,7 +88,58 @@ r2 = r2_score(y_test, y_pred)
 mae = mean_absolute_error(y_test, y_pred)
 rmse = np.sqrt(mean_squared_error(y_test, y_pred))
 
-print(f"The r2-score of the model is {r2:.2f}")
-print(f"The mean absolute error of the model is {mae:.2f}")
-print(f"The root mean squared error of the model is {rmse:.2f}")
+
+warnings.filterwarnings("ignore") # to avoid the printing of a warning which does not affect the code
+
+# train the model
+model = KNeighborsRegressor(n_neighbors=10) # n_neoghbor value is 10 
+model.fit(X, y)
+
+# define the bins and labels
+bins = [0, 1000, 10000, 100000, 1000000, np.inf] #infinity as a upper bound 
+labels = ['Low', 'Medium-Low', 'Medium', 'Medium-High', 'High']
+
+
+# get user inputs
+print("Available catggories are : ")
+for i in available_categories:
+    print(i)
+
+while True:
+  category = input('Enter the category of the app : ').upper().replace(" ","_")
+  if category in available_categories:
+     break
+  else :
+      print(f"{category} is not a valid category. Please enter a valid category.")
+
+while True:
+  try:
+    price = float(input('Enter the price of the app in dollars : '))
+    if price<0:
+      raise ValueError
+    break
+  except ValueError:
+    print("Price should be a positive number.Please enter a valid price")
+
+while True:
+  try:
+    size = float(input('Enter the size of the app in bytes : '))
+    if size<0:
+      raise ValueError
+    break
+  except ValueError:
+        print("Size should be a positive number.Please enter a valid size")
+
+
+# encode user input category
+category = encoder.transform([category])[0]
+
+# predict the installs
+installs = model.predict([[category, price, size]])[0]
+
+# categorize the success rate
+success_category = pd.cut([installs], bins=bins, labels=labels)[0]
+
+# print the result
+print(f"The predicted intalls are around {int(installs)}, which falls under the {success_category} success category.")
 
