@@ -12,14 +12,13 @@ from user.serializers import AppDetailsSerializer
 
 from user.models import Customer
 from user.models import ApplicationDetails
-
+from sklearn.preprocessing import LabelEncoder
 import joblib
 import numpy as np
 import pandas as pd
 
-
-
-
+from user.model_test import model
+from user.model_test import encoder
 
 @api_view(['POST'])
 def register(request):
@@ -38,48 +37,36 @@ def customers(request):
 
 # encoder.classes_ = np.load('classes.npy')
 
-# def makePrediction(details):
-
-#     model = joblib.load('F:\WorkStuff\IIT\SEM2\SDGP\masf-CS24\masf-CS24\masf-back-end\user\python_playstore')
-#     x = details["category"]
-#     y = details["prize"]
-#     z = details["size"]
-
-#     try:
-#         category = encoder.transform([x])[0]
-#     except ValueError:
-#         return "Unrecognized category"
+def makePrediction(details):
+    # model = joblib.load("F:\WorkStuff\IIT\SEM2\SDGP\masf-CS24\masf-CS24\masf-back-end\user\final_model")
+    x = details["category"]
+    y = details["prize"]
+    z = details["size"]
     
-#     X = np.array([category,y, z])
-#     prediction = model.predict(X)
-#     return prediction[0]
+    x = encoder.transform([x])[0]
+    installs = model.predict([[x, y, z]])[0]
 
-    # success_category = pd.cut([installs], bins=bins, labels=labels)[0]
-    # print(x)
-    # print(y)
-    # print(z)
-    # category = encoder.transform([[details["category"]]])
-    # X = np.array([category[0], float(details['prize']), float(details['size'])])
+    return installs
 
-    # prediction = model.predict(X)
-
-    # return prediction[0]
-
-
-@api_view(['POST','GET'])
+@api_view(['POST'])
 def appDetails(request):
-    serializer = AppDetailsSerializer(data=request.data)
+    if request.method == "POST":
+        serializer = AppDetailsSerializer(data=request.data)
         
-    if serializer.is_valid():
-        serializer.save()
-        data = serializer.validated_data
-        # outcome = makePrediction(data)
-        # print(outcome)
-        # return JsonResponse({'prediction': outcome})
+        if serializer.is_valid():
+            serializer.save()
+            data = serializer.validated_data
+            outcome = makePrediction(data)
+            print(f'No of installs are {outcome}')
+            return JsonResponse({'prediction': outcome})
 
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-# @api_view([])
-# def    
+    # if request.method == "GET":
+    #         serializer = AppDetailsSerializer(data=request.data)
+    #         print(serializer)
+    #         if serializer.is_valid():  
+               
+            
+    # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
     
 
