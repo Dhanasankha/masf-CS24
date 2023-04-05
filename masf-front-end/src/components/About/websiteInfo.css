@@ -1,0 +1,147 @@
+body {
+    background: linear-gradient(90deg, rgb(0, 105, 204), rgb(38, 157, 255) 9%, rgb(0, 105, 204) 99%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    text-align: left;
+  }
+
+
+.header h1{
+    color: #f7f7f7;
+}
+
+.website-info {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  }
+  
+  .website-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: rgb(0, 0, 0);
+  }
+  
+  .website-info h2 {
+    font-size: 2rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: rgb(0, 0, 0);
+  }
+  
+  .website-info p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    color: rgb(0, 0, 0);
+  }
+  
+  .website-info ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+  }
+  
+  .website-info li {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .developers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+  }
+  
+  .developer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .developer:hover {
+    transform: scale(1.05);
+  }
+  
+  .developer img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .developer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .developer p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  .modal-content {
+    width: 500px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  .modal-content img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .modal-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .modal-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  
+  .close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+  }
+  

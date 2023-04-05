@@ -15,12 +15,11 @@ import "./App.css";
 // import BaseViewController from './view/BaseView/BaseViewController';
 // import SingUpContorller from './components/SingUp/SingUpContorller';
 // import LogInController from './components/LogIn/LogInController';
-import DataForm from "./components/DatForm/DataForm";
 // import SingUpView from "./components/SingUp/SingUpView";
 import Navbar from "./components/NavBar/Navbar";
 import Home from "./view/Homepage 2/Home";
-// import SingUpContorller from "./components/SingUp/SingUpContorller";
-import signIn from "./components/SignIn/signIn";
+import WebsiteInfo from "./components/About/WebsiteInfo";
+import AppDetails from "./components/AppDetails/AppDetails";
 
 function App() {
   return (
@@ -30,8 +29,9 @@ function App() {
         <Routes>
           {/* <Route index element={<SingUpContorller />} /> */}
           <Route path="home" element={<Home />} />
-          <Route path="form" element={<DataForm />} />
-          <Route path="signin" element={<signIn />} />
+          <Route path="form" element={<AppDetails />} />
+          {/* <Route path="signin" element={<signIn />} /> */}
+          <Route path="about" element={<WebsiteInfo />} />
           {/* <Route path='/' exact component={Home} /> */}
         </Routes>
       </main>

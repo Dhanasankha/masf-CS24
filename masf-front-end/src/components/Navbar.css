@@ -2,15 +2,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1a1a1a; 
-  color: #ffffff; 
-  height: 60px; 
+  background-color: #1a1a1a;
+  color: #ffffff;
+  height: 60px;
 }
 
 .navbar__brand {
   font-size: 1.5rem;
   font-weight: bold;
-  text-transform: uppercase; 
+  text-transform: uppercase;
   margin-left: 50px;
 }
 
@@ -26,8 +26,8 @@
 }
 
 .navbar__button {
-  background-color: #1a1a1a; 
-  color: #ffffff; 
+  background-color: #1a1a1a;
+  color: #ffffff;
   border: none;
   cursor: pointer;
   padding: 0.5rem 1rem;
@@ -37,12 +37,12 @@
 }
 
 .navbar__button:hover {
-  background-color: #ffffff; 
-  color: #1a1a1a; 
+  background-color: #ffffff;
+  color: #1a1a1a;
   font-size: 1.3rem;
 }
 
-.navbar__button:focus {
+/* Remove outline for all buttons except the Sign In button */
+.navbar__button:not(:focus) {
   outline: none;
-  box-shadow: 0px 0px 5px #006d77; 
 }
