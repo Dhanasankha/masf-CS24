@@ -2,7 +2,7 @@ from rest_framework import serializers;
 
 from django.contrib.auth.models import User
 from user.models import Customer
-from user.models import AppDetails
+from user.models import ApplicationDetails
 #serealize models
 
 class UserSerializer(serializers.ModelSerializer):
@@ -28,6 +28,6 @@ class CustomerSerializer(serializers.ModelSerializer):
 
 class AppDetailsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = AppDetails
+        model = ApplicationDetails
         fields = '__all__'
 

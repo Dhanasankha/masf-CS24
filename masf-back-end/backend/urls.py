@@ -21,7 +21,7 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     # path('register', include('user.urls')),
-    path('home', include('user.urls')),
+    path('test/', include('user.urls')),
     path('token', TokenObtainPairView.as_view()),
     path('token/refresh',TokenRefreshView.as_view())
 

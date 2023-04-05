@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Routes , Link, BrowserRouter} from "rea
 import React from 'react';
 // import Navbar from '../src/components/NavBar/Navbar';
 import './App.css';
-// import Home from '../src/view/Homepage 2/Home';
-// import AppDetails from './view/AppDetails';
+import Home from '../src/view/Homepage 2/Home';
+import AppDetails from './view/AppDetails';
 // import PredictionPage from './view/PredictionPage';
 // import BaseViewController from './view/BaseView/BaseViewController';
 import SingUpContorller from './components/SingUp/SingUpContorller';
@@ -17,9 +17,10 @@ function App() {
       <AppbarContorller/>
       <main >
         <Routes>
-          <Route index element = {<SingUpContorller/>} />
+          {/* <Route index element = {<SingUpContorller/>} /> */}
           <Route path="home" element = {<LogInController/>} />
-          {/* <Route path='/' exact component={Home} /> */}
+          <Route path='/home' exact component={<Home/>} />
+          <Route path='/dataform' element={<AppDetails/>}/>
         </Routes>
       </main>
     </BrowserRouter>

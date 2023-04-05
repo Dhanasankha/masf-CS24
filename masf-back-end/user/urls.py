@@ -4,9 +4,8 @@ from .views import customers
 from .views import appDetails
 
 urlpatterns = [
-
-    path('register/', register ),
-    path('customer/', customers),
+    path('register', register ),
+    path('customer', customers),
     path('appdetails', appDetails)
 
 ]

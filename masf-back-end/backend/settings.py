@@ -98,9 +98,9 @@ TEMPLATES = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'masf',
+        'NAME': 'MAP',
         'USER': 'postgres',
-        'PASSWORD': '23098354',
+        'PASSWORD': 'Sheran2002',
         'HOST': 'localhost',
     }
 }

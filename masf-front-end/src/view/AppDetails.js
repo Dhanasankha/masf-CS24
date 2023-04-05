@@ -3,10 +3,9 @@ import { useState } from 'react';
 import axios from 'axios';
 
 const AppDetails = () => {
-    const [rating, setRating] = useState('')
-    const [count, setCount] = useState('')
-    const [size, setSize] = useState('')
-    const [languages, setLanguages] = useState('')
+    const [catergory, setCatergory] = useState('');
+    const [prize, setPrize] = useState();
+    const [size, setSize] = useState();
 
 
 
@@ -14,13 +13,19 @@ const AppDetails = () => {
         event.preventDefault();
 
         const appDetails = {
-            rating,
-            count,
-            size,
-            languages
+            "category": catergory,
+            "prize": prize,
+            "size": size,
         };
+        
+        console.log(appDetails);
 
-        axios.post('http://127.0.0.1:8000/home/appdetails', appDetails)
+        axios.post('http://127.0.0.1:8000/test/appdetails', appDetails, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+
         .then(response =>{
             console.log(response)
         })
@@ -29,12 +34,15 @@ const AppDetails = () => {
 
     return (
         <div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             <h1>Make Prediction</h1>
             <form onSubmit={handelSubmit} method="POST">
-                <input type="number" name={rating} onChange={(e)=>setRating(e.target.value)}/><br/>
-                <input type="number" name={count} onChange={(e)=>setCount(e.target.value)}/><br/>
-                <input type="number" name={size} onChange={(e)=>setSize(e.target.value)}/><br/>
-                <input type="number" name={languages} onChange={(e)=>setLanguages(e.target.value)}/><br/>
+                <input type="text" name={catergory} onChange={(e) => setCatergory(e.target.value)} /><br/>
+                <input type="number" value={prize} onChange={(e)=>setPrize(e.target.value)}/><br/>
+                <input type="number" value={size} onChange={(e)=>setSize(e.target.value)}/><br/>
                 <button type="number" >Make Prediction!</button>
             </form>
         </div>
