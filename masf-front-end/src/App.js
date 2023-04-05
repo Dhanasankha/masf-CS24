@@ -7,17 +7,20 @@ import './App.css';
 // import AppDetails from './view/AppDetails';
 // import PredictionPage from './view/PredictionPage';
 // import BaseViewController from './view/BaseView/BaseViewController';
-import SingUpContorller from './components/SingUp/SingUpContorller';
+// import SingUpContorller from './components/SingUp/SingUpContorller';
 import LogInController from './components/LogIn/LogInController';
-import AppbarContorller from './components/Appbar/AppbarControlller';
+// import AppbarContorller from './components/Appbar/AppbarControlller';
+import DataForm from "./components/DatForm/DataForm";
+import Navbar from "./components/Navbar";
+
 
 function App() {
   return ( 
     <BrowserRouter>
-      <AppbarContorller/>
+      <Navbar/>
       <main >
         <Routes>
-          <Route index element = {<SingUpContorller/>} />
+          <Route index element = {<DataForm/>} />
           <Route path="home" element = {<LogInController/>} />
           {/* <Route path='/' exact component={Home} /> */}
         </Routes>

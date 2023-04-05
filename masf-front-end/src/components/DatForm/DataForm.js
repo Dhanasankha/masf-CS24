@@ -38,7 +38,7 @@ const DataForm = () => {
   };
 
   return (
-    <div>
+    <div className="testing">
       <div
         className="data-form-container"
         style={{ display: "inline-block", marginRight: "20px" }}
@@ -135,11 +135,11 @@ const DataForm = () => {
       </div>
 
       <div style={{ display: "inline-block", marginLeft: "20px" }}>
-        <OutputTable
+        {/* <OutputTable
           formValues={formValues}
           installs={installs}
           submitted={submitted}
-        />
+        /> */}
       </div>
     </div>
   );
