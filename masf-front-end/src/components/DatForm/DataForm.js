@@ -2,43 +2,40 @@ import React, { useState } from "react";
 import "./DataForm.css";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import { MenuItem } from "@mui/material";
 import axios from "axios";
-import OutputTable from "./OutputTable";
 
 const DataForm = () => {
-  const [appName, setAppName] = useState("");
-  const [rating, setRating] = useState("");
-  const [count, setCount] = useState("");
-  const [size, setSize] = useState("");
-  const [supportedDevices, setSupportedDevices] = useState("");
-  const [languages, setLanguages] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [formValues, setFormValues] = useState({});
-
-  // Set the number of installs to 1000
-  const installs = 1000;
+  const [price, setPrice] = useState();
+  const [size, setSize] = useState();
+  const [category, setCategory] = useState();
+  // const [languages, setLanguages] = useState("");
+  const [outcome, setOutcome] = useState();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const initialValues = {
-      appName,
-      rating,
-      count,
-      size,
-      supportedDevices,
-      languages,
+
+    const appDetails = {
+      category: category,
+      price: price,
+      size: size,
     };
     axios
-      .post("http://127.0.0.1:8000/home/appdetails", initialValues)
+      .post("http://127.0.0.1:8000/test/appdetails", appDetails, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+
       .then((response) => {
-        setFormValues(initialValues);
-        setSubmitted(true);
+        console.log(response.data.prediction);
+        setOutcome(response.data.prediction);
       })
       .catch(console.error());
   };
 
   return (
-    <div>
+    <div className="page">
       <div
         className="data-form-container"
         style={{ display: "inline-block", marginRight: "20px" }}
@@ -59,10 +56,10 @@ const DataForm = () => {
           >
             <div className="form-group grid-item" style={{ marginTop: "20px" }}>
               <TextField
-                id="appName"
-                name="AppName"
+                id={price}
+                name={price}
                 label="Application Name"
-                onChange={(e) => setAppName(e.target.value)}
+                onChange={(e) => setPrice(e.target.value)}
                 variant="outlined"
                 className="form-field"
                 required
@@ -71,29 +68,7 @@ const DataForm = () => {
 
             <div className="form-group grid-item" style={{ marginTop: "20px" }}>
               <TextField
-                name="rating"
-                onChange={(e) => setRating(e.target.value)}
-                id="rating"
-                label="Rating"
-                variant="outlined"
-                className="form-field"
-                required
-              />
-            </div>
-            <div className="form-group grid-item" style={{ marginTop: "20px" }}>
-              <TextField
-                name="count"
-                id="count"
-                onChange={(e) => setCount(e.target.value)}
-                label="Count"
-                variant="outlined"
-                className="form-field"
-                required
-              />{" "}
-            </div>
-            <div className="form-group grid-item" style={{ marginTop: "20px" }}>
-              <TextField
-                name="size"
+                name={size}
                 id="size"
                 onChange={(e) => setSize(e.target.value)}
                 label="Size"
@@ -105,41 +80,49 @@ const DataForm = () => {
 
             <div className="form-group grid-item" style={{ marginTop: "20px" }}>
               <TextField
-                name="supportedDevices"
-                id="supportedDevices"
-                onChange={(e) => setSupportedDevices(e.target.value)}
-                label="Supported Devices"
+                name={category}
+                id={category}
+                select
+                label="App Category"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
                 variant="outlined"
                 className="form-field"
                 required
-              />
+              >
+                <MenuItem value="category1">Social Networking</MenuItem>
+                <MenuItem value="category2">Photo & Video</MenuItem>
+                <MenuItem value="category3">Games</MenuItem>
+                <MenuItem value="category4">Music</MenuItem>
+                <MenuItem value="category5">Reference</MenuItem>
+                <MenuItem value="category6">Health & Fitness</MenuItem>
+                <MenuItem value="category7">Weather</MenuItem>
+                <MenuItem value="category8">Utilities</MenuItem>
+                <MenuItem value="category9">Travel</MenuItem>
+                <MenuItem value="category10">Shopping</MenuItem>
+                <MenuItem value="category11">News</MenuItem>
+                <MenuItem value="category12">Navigation</MenuItem>
+                <MenuItem value="category13">Lifestyle</MenuItem>
+                <MenuItem value="category14">Entertainment</MenuItem>
+                <MenuItem value="category15">Food & Drink</MenuItem>
+                <MenuItem value="category16">Sports</MenuItem>
+                <MenuItem value="category17">Book</MenuItem>
+                <MenuItem value="category18">Finance</MenuItem>
+                <MenuItem value="category19">Education</MenuItem>
+                <MenuItem value="category20">Productivity</MenuItem>
+                <MenuItem value="category21">Business</MenuItem>
+                <MenuItem value="category22">Catalogs</MenuItem>
+                <MenuItem value="category23">Medical</MenuItem>
+              </TextField>
             </div>
             <div className="form-group grid-item" style={{ marginTop: "20px" }}>
-              <TextField
-                name="languages"
-                id="languages"
-                onChange={(e) => setLanguages(e.target.value)}
-                label="Languages"
-                variant="outlined"
-                className="form-field"
-                required
-              />
-            </div>
-            <div className="form-group grid-item" style={{ marginTop: "20px" }}>
-              <Button variant="contained" type="submit" color="primary">
+              <Button type="submit" variant="contained" color="primary">
                 Submit
               </Button>
             </div>
+            <p>{outcome}</p>
           </form>
         </div>
-      </div>
-
-      <div style={{ display: "inline-block", marginLeft: "20px" }}>
-        <OutputTable
-          formValues={formValues}
-          installs={installs}
-          submitted={submitted}
-        />
       </div>
     </div>
   );
