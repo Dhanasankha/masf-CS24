@@ -11,11 +11,18 @@ from user.serializers import CustomerSerializer
 from user.serializers import AppDetailsSerializer
 
 from user.models import Customer
-from user.models import AppDetails
-# invoke serializer and return to client.
+from user.models import ApplicationDetails
+from sklearn.preprocessing import LabelEncoder
+import joblib
+import numpy as np
 import pandas as pd
+<<<<<<< HEAD
 # from user.predicting_model import model
+=======
+>>>>>>> afa62bba4767872d6e1d59d06d39fae608fb660c
 
+from user.model_test import model
+from user.model_test import encoder
 
 @api_view(['POST'])
 def register(request):
@@ -26,17 +33,38 @@ def register(request):
 
 
 @api_view(['GET', 'POST'])
-# @permission_classes([IsAuthenticated])
 def customers(request):
     data = Customer.objects.all()
 
     serializer = CustomerSerializer(data=request, many=True)
     return JsonResponse({'customer':serializer.data})
 
+# encoder.classes_ = np.load('classes.npy')
 
-@api_view(['POST','GET'])
+def makePrediction(details):
+    # model = joblib.load("F:\WorkStuff\IIT\SEM2\SDGP\masf-CS24\masf-CS24\masf-back-end\user\final_model")
+    x = details["category"]
+    y = details["prize"]
+    z = details["size"]
+    
+    x = encoder.transform([x])[0]
+    installs = model.predict([[x, y, z]])[0]
+
+    return installs
+
+@api_view(['POST'])
 def appDetails(request):
+    if request.method == "POST":
+        serializer = AppDetailsSerializer(data=request.data)
+        
+        if serializer.is_valid():
+            serializer.save()
+            data = serializer.validated_data
+            outcome = makePrediction(data)
+            print(f'No of installs are {outcome}')
+            return JsonResponse({'prediction': outcome})
 
+<<<<<<< HEAD
     data = appDetails.objects.all()
     serializer = AppDetailsSerializer(data=request.data)
     if serializer.is_valid():
@@ -44,10 +72,15 @@ def appDetails(request):
         serializer = pd.DataFrame(data, index=[0])
         # totalratings = model.predict(serializer)[0]
         # return Response(totalratings)
+=======
+    # if request.method == "GET":
+    #         serializer = AppDetailsSerializer(data=request.data)
+    #         print(serializer)
+    #         if serializer.is_valid():  
+               
+            
+    # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+>>>>>>> afa62bba4767872d6e1d59d06d39fae608fb660c
     
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-# @api_view([])
-# def    
     
 

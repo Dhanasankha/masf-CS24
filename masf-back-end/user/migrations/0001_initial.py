@@ -11,16 +11,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='AppDetails',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('rating', models.FloatField(default=0)),
-                ('size', models.FloatField(default=0)),
-                ('ratings_count', models.IntegerField(default=0)),
-                ('languages', models.IntegerField(default=0)),
-            ],
-        ),
+     
         migrations.CreateModel(
             name='Customer',
             fields=[
