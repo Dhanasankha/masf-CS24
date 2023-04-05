@@ -1,51 +1,4 @@
 .navbar {
-<<<<<<< HEAD
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #1a1a1a; /* Use a darker shade of black for better contrast */
-  color: #ffffff; /* Use a named color for better readability */
-  padding: 1rem;
-}
-
-.navbar__brand {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-transform: uppercase; /* Add text transform to uppercase for better consistency */
-}
-
-.navbar__links {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar__links li {
-  margin: 0 1rem;
-}
-
-.navbar__button {
-  background-color: #ffffff; /* Use a contrasting color for the button */
-  color: #1a1a1a; /* Use a contrasting color for the button */
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  font-size: 1.2rem;
-  transition: all 0.3s ease-in-out;
-}
-
-.navbar__button:hover {
-  background-color: #006d77; /* Use a contrasting color for the hover state */
-  color: #ffffff; /* Use a contrasting color for the hover state */
-  font-size: 1.3rem;
-}
-
-.navbar__button:focus {
-  outline: none;
-  box-shadow: 0px 0px 5px #006d77; /* Use a contrasting color for the focus state */
-=======
   background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
   height: 80px;
   display: flex;
@@ -202,5 +155,4 @@
     color: #242424;
     transition: 250ms;
   }
->>>>>>> d1d17d87041d3917010490dc31b03c378bb7d0fe
 }

@@ -2,15 +2,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1a1a1a; /* Use a darker shade of black for better contrast */
-  color: #ffffff; /* Use a named color for better readability */
-  padding: 1rem;
+  background-color: #1a1a1a; 
+  color: #ffffff; 
+  height: 60px; 
 }
 
 .navbar__brand {
   font-size: 1.5rem;
   font-weight: bold;
-  text-transform: uppercase; /* Add text transform to uppercase for better consistency */
+  text-transform: uppercase; 
+  margin-left: 50px;
 }
 
 .navbar__links {
@@ -25,8 +26,8 @@
 }
 
 .navbar__button {
-  background-color: #ffffff; /* Use a contrasting color for the button */
-  color: #1a1a1a; /* Use a contrasting color for the button */
+  background-color: #1a1a1a; 
+  color: #ffffff; 
   border: none;
   cursor: pointer;
   padding: 0.5rem 1rem;
@@ -36,12 +37,12 @@
 }
 
 .navbar__button:hover {
-  background-color: #006d77; /* Use a contrasting color for the hover state */
-  color: #ffffff; /* Use a contrasting color for the hover state */
+  background-color: #ffffff; 
+  color: #1a1a1a; 
   font-size: 1.3rem;
 }
 
 .navbar__button:focus {
   outline: none;
-  box-shadow: 0px 0px 5px #006d77; /* Use a contrasting color for the focus state */
+  box-shadow: 0px 0px 5px #006d77; 
 }
