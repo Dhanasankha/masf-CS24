@@ -35,6 +35,7 @@ const DataForm = () => {
   };
 
   return (
+
     <div className="page">
       <div
         className="data-form-container"
@@ -123,6 +124,13 @@ const DataForm = () => {
             <p>{outcome}</p>
           </form>
         </div>
+      </div>
+      <div style={{ display: "inline-block", marginLeft: "20px" }}>
+        {/* <OutputTable
+          formValues={formValues}
+          installs={installs}
+          submitted={submitted}
+        /> */}
       </div>
     </div>
   );

@@ -16,6 +16,10 @@ from sklearn.preprocessing import LabelEncoder
 import joblib
 import numpy as np
 import pandas as pd
+<<<<<<< HEAD
+# from user.predicting_model import model
+=======
+>>>>>>> afa62bba4767872d6e1d59d06d39fae608fb660c
 
 from user.model_test import model
 from user.model_test import encoder
@@ -60,6 +64,15 @@ def appDetails(request):
             print(f'No of installs are {outcome}')
             return JsonResponse({'prediction': outcome})
 
+<<<<<<< HEAD
+    data = appDetails.objects.all()
+    serializer = AppDetailsSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        serializer = pd.DataFrame(data, index=[0])
+        # totalratings = model.predict(serializer)[0]
+        # return Response(totalratings)
+=======
     # if request.method == "GET":
     #         serializer = AppDetailsSerializer(data=request.data)
     #         print(serializer)
@@ -67,6 +80,7 @@ def appDetails(request):
                
             
     # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+>>>>>>> afa62bba4767872d6e1d59d06d39fae608fb660c
     
     
 
