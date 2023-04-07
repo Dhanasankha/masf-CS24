@@ -20,6 +20,6 @@ Python
 
 ## Technologies Used
 
-React JS - frontend. 
-Node JS - frontend. 
-Django - frontend. 
+* React JS - frontend. 
+* Node JS - frontend. 
+* Django - frontend. 
