@@ -1,6 +1,9 @@
-**Forecaster by Amateurs On Project (CS-24)**
+# Forecaster by Amateurs On Project (CS-24)
 
-*This is the Repository for implementation of  Success Prediction for Mobile applications*
+This is the Repository for  Success Prediction for Mobile applications
+
+***
+## Team Members 
 
 |Name|UoW ID|IIT ID|
 |----|----|----|
@@ -9,3 +12,14 @@
 |T.S.Buckman|1809910|2019127|
 |N.D.Pathirana|18706189|20200663|
 |S.Karunarathne|18706079|20210252|
+***
+
+## Language Selection
+
+Python 
+
+## Technologies Used
+
+React JS - frontend
+Node JS - frontend
+Django - frontend
