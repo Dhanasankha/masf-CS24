@@ -1,6 +1,6 @@
-#Forecaster by Amateurs On Project (CS-24)
+**Forecaster by Amateurs On Project (CS-24)**
 
-##This is the Repository for implementation of  Success Prediction for Mobile applications
+*This is the Repository for implementation of  Success Prediction for Mobile applications*
 
 |Name|UoW ID|IIT ID|
 |----|----|----|
