@@ -6,7 +6,7 @@ const AppDetails = () => {
     const [catergory, setCatergory] = useState('');
     const [prize, setPrize] = useState();
     const [size, setSize] = useState();
-
+    const [outcome, setOutcome] = useState();
 
 
     const handelSubmit = async (event) =>{
@@ -27,9 +27,23 @@ const AppDetails = () => {
         })
 
         .then(response =>{
-            console.log(response)
+            console.log(response.data.prediction)
+            setOutcome(response.data.prediction)
         })
         .catch(console.error())
+
+        // axios.get('http://127.0.0.1:8000/test/appdetails', {
+        //     params: {
+        //         "category": catergory,
+        //         "prize": prize,
+        //         "size": size,
+        //       }
+        // }).then(response =>{
+        //     console.log("This runs")
+        //     console.log(response.data.prediction);
+        //     setOutcome(response.data.prediction);
+        // })
+        // .catch(console.error())
     };
 
     return (
@@ -44,6 +58,7 @@ const AppDetails = () => {
                 <input type="number" value={prize} onChange={(e)=>setPrize(e.target.value)}/><br/>
                 <input type="number" value={size} onChange={(e)=>setSize(e.target.value)}/><br/>
                 <button type="number" >Make Prediction!</button>
+                <p>{outcome}</p>
             </form>
         </div>
     );

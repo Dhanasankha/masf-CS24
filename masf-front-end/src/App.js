@@ -30,14 +30,17 @@ function App() {
       <Navbar />
       <main>
         <Routes>
-          {/* <Route index element={<SingUpContorller />} /> */}
+          {/* <Route index element={<DataForm />} /> */}
           <Route path="home" element={<Home />} />
+
           <Route path="form" element={<AppDetails />} />
           {/* <Route path="signin" element={<signIn />} /> */}
           <Route path="about" element={<WebsiteInfo />} />
           <Route path="sign-up" element={<SignUpForm />} />
           <Route path="sign-in" element={<SignInForm />} />
           {/* <Route path='/' exact component={Home} /> */}
+          {/* <Route path="form" element={<DataForm />} /> */}
+          {/* <Route path="signin" element={<SignIn />} /> */}
         </Routes>
       </main>
       <Footer />

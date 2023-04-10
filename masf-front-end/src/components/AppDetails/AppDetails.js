@@ -22,7 +22,7 @@ const AppDetails = () => {
     console.log(appDetails);
 
     axios
-      .post("http://127.0.0.1:8000/test/appdetails", appDetails, {
+      .post("https://web-production-6de9.up.railway.app/", appDetails, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -53,8 +53,8 @@ const AppDetails = () => {
             >
               <option value="ART_AND_DESIGN">Art & Design</option>
               <option value="AUTO_AND_VEHICLES">Auto & Vehicles</option>
-              <option value="BEAUTY">Beauty</option>
-              <option value="BOOKS_AND_REFERENCE">Books & Referencing</option>
+              <option value="BEAUTY">BEAUTY</option>
+              <option value="BOOKS_AND_REFERENCE">Books & Reference</option>
               <option value="BUSINESS">Business</option>
               <option value="COMICS">Comics</option>
               <option value="COMMUNICATION">Communication</option>
@@ -63,12 +63,11 @@ const AppDetails = () => {
               <option value="ENTERTAINMENT">Entertainment</option>
               <option value="EVENTS">Events</option>
               <option value="FINANCE">Finance</option>
-              <option value="FOOD_AND_DRINK">Food & Beverages</option>
-              <option value="HEALTH_AND_FITNESS">Fitness</option>
-              <option value="HOUSE_AND_HOME">House & Home</option>
-              <option value="LIBRARIES_AND_DEMO">Library & Demo</option>
+              <option value="FOOD_AND_DRINK">Food & Drink</option>
+              <option value="HEALTH_AND_FITNESS">Health & Fitness</option>
+              <option value="HOUSE_AND_HOME">Home</option>
+              <option value="LIBRARIES_AND_DEMO">Library</option>
               <option value="LIFESTYLE">LifeStyle</option>
-              <option value="GAME">Games</option>
               <option value="FAMILY">Family</option>
               <option value="MEDICAL">Medical</option>
               <option value="SOCIAL">Social</option>
