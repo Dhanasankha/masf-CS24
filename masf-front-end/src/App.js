@@ -15,27 +15,35 @@ import "./App.css";
 // import BaseViewController from './view/BaseView/BaseViewController';
 // import SingUpContorller from './components/SingUp/SingUpContorller';
 // import LogInController from './components/LogIn/LogInController';
-// import AppbarContorller from './components/Appbar/AppbarControlller';
-import DataForm from "./components/DatForm/DataForm";
 // import SingUpView from "./components/SingUp/SingUpView";
 import Navbar from "./components/NavBar/Navbar";
 import Home from "./view/Homepage 2/Home";
-// import SingUpContorller from "./components/SingUp/SingUpContorller";
-import SignIn from "./components/SignIn/signIn";
-
+import WebsiteInfo from "./components/About/WebsiteInfo";
+import AppDetails from "./components/AppDetails/AppDetails";
+import SignUpForm from "./components/SignUp/SignUpForm";
+import SignInForm from "./components/SignIn/SignInForm";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar/>
-      <main >
+      <Navbar />
+      <main>
         <Routes>
-          <Route index element = {<DataForm/>} />
+          {/* <Route index element={<DataForm />} /> */}
           <Route path="home" element={<Home />} />
-          <Route path="form" element={<DataForm/>} />
-          <Route path="signin" element={<SignIn/>} />
+
+          <Route path="form" element={<AppDetails />} />
+          {/* <Route path="signin" element={<signIn />} /> */}
+          <Route path="about" element={<WebsiteInfo />} />
+          <Route path="sign-up" element={<SignUpForm />} />
+          <Route path="sign-in" element={<SignInForm />} />
+          {/* <Route path='/' exact component={Home} /> */}
+          {/* <Route path="form" element={<DataForm />} /> */}
+          {/* <Route path="signin" element={<SignIn />} /> */}
         </Routes>
       </main>
+      <Footer />
     </BrowserRouter>
   );
 }
