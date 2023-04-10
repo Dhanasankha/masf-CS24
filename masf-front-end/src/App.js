@@ -20,6 +20,9 @@ import Navbar from "./components/NavBar/Navbar";
 import Home from "./view/Homepage 2/Home";
 import WebsiteInfo from "./components/About/WebsiteInfo";
 import AppDetails from "./components/AppDetails/AppDetails";
+import SignUpForm from "./components/SignUp/SignUpForm";
+import SignInForm from "./components/SignIn/SignInForm";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -32,9 +35,12 @@ function App() {
           <Route path="form" element={<AppDetails />} />
           {/* <Route path="signin" element={<signIn />} /> */}
           <Route path="about" element={<WebsiteInfo />} />
+          <Route path="sign-up" element={<SignUpForm />} />
+          <Route path="sign-in" element={<SignInForm />} />
           {/* <Route path='/' exact component={Home} /> */}
         </Routes>
       </main>
+      <Footer />
     </BrowserRouter>
   );
 }
